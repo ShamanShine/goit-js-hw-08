@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Lighthouse Coast Sea',
     },
   ];
-
+  // создаём HTML разметку для каждого элемента галереи 
   const galleryHtml = images.map(image => `
         <li class="gallery-item">
             <a class="gallery-link" href="#" data-source="${image.original}">
@@ -75,8 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     src="${image.preview}"
                     data-source="${image.original}"
                     alt="${image.description}"
-                    style="width: 360px; height: 200px;"
-                />
+                    style="width: 360px; height: 200px;"/>
             </a>
         </li>
     `).join(''); // объединяем все элементы в одну строку
