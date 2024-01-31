@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const galleryImages = gallery.querySelectorAll('.gallery-image');
   galleryImages.forEach((image, index) => {  // создаем новое модальное окно lightbox с большой картинкой
-    lightboxInstances.push(basicLightbox.create(`<img src="${images[index].original}" width="1112" height="640" alt="${images[index].description}">`));
+    lightboxInstances.push(basicLightbox.create(`<img src="${images[index].original}" width="1112px" height="640px" alt="${images[index].description}">`));
     // добавляем слушателя события для каждого елемента галереи
     image.addEventListener('click', () => {
       lightboxInstances[index].show();// вызываем модальное окно при событии клик на елемент галереи
