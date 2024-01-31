@@ -1,65 +1,114 @@
-const images = [
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
-    description: 'Hokkaido Flower',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
-    description: 'Container Haulage Freight',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
-    description: 'Aerial Beach View',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg',
-    description: 'Flower Blooms',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg',
-    description: 'Alpine Mountains',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg',
-    description: 'Mountain Lake Sailing',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
-    description: 'Alpine Spring Meadows',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
-    description: 'Nature Landscape',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
-    description: 'Lighthouse Coast Sea',
-  },
-];
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.gallery');
+  const lightboxInstances = []; // обьявляем переменную тут
+  const images = [
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
+      description: 'Hokkaido Flower',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
+      description: 'Container Haulage Freight',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
+      description: 'Aerial Beach View',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg',
+      description: 'Flower Blooms',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg',
+      description: 'Alpine Mountains',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg',
+      description: 'Mountain Lake Sailing',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
+      description: 'Alpine Spring Meadows',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
+      description: 'Nature Landscape',
+    },
+    {
+      preview:
+        'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg',
+      original:
+        'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
+      description: 'Lighthouse Coast Sea',
+    },
+  ];
+
+  const galleryHtml = images.map(image => `
+        <li class="gallery-item">
+            <a class="gallery-link" href="#" data-source="${image.original}">
+                <img
+                    class="gallery-image"
+                    src="${image.preview}"
+                    data-source="${image.original}"
+                    alt="${image.description}"
+                    style="width: 360px; height: 200px;"
+                />
+            </a>
+        </li>
+    `).join(''); // объединяем все элементы в одну строку
+
+  gallery.innerHTML = galleryHtml; // устанавливаем HTML-код внутрь контейнера галереи
+
+  const galleryImages = gallery.querySelectorAll('.gallery-image');
+
+  galleryImages.forEach((image, index) => {  // создаем новое модальное окно lightbox с большой картинкой
+    lightboxInstances.push(basicLightbox.create(`
+            <img src="${images[index].original}" width="800" height="600" alt="${images[index].description}">
+        `));
+    // добавляем слушателя события для каждого елемента галереи
+    image.addEventListener('click', () => {
+      lightboxInstances[index].show();// вызываем модальное окно при событии клик на елемент галереи
+
+      // добавляем слушателя события для закрытия модального окна при нажатии еscape
+      window.addEventListener('keydown', handleKeyDown);
+    });
+  });
+
+  function handleKeyDown(event) {
+    // проверяем, нажата ли именно еscape (keyCode або key)
+    if (event.key === 'Escape' || event.keyCode === 27) {
+      // закрываем все открытые модальные окна
+      lightboxInstances.forEach(lightbox => lightbox.close());
+      // удаляем слушателя события после закрытия модельного окна.
+      window.removeEventListener('keydown', handleKeyDown);
+    }
+  }
+  // Добавим немного стилей через JS
+  gallery.style.display = 'flex';
+  gallery.style.padding = '0';
+  gallery.style.listStyle = 'none';
+});
