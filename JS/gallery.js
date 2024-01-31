@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function handleKeyDown(event) {
-    // проверяем, нажата ли именно еscape (keyCode або key)
+    // проверяем, нажата ли именно еscape (keyCode или key)
     if (event.key === 'Escape' || event.keyCode === 27) {
       // закрываем все открытые модальные окна
       lightboxInstances.forEach(lightbox => lightbox.close());
