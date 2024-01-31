@@ -13,3 +13,8 @@
     margin-top: 24px;
     margin-right: 156px;
 }
+
+.gallery-item:hover {
+    background-color: hsl(200, 94%, 49%);
+    /* подсвечивание при наведении */
+}
