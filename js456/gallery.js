@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gallery = document.querySelector('.gallery');
+
   const lightboxInstances = []; // обьявляем переменную тут
+
   const images = [
     {
       preview:
@@ -79,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>
         </li>
     `).join(''); // объединяем все элементы в одну строку
+
   gallery.innerHTML = galleryHtml; // устанавливаем HTML-код внутрь контейнера галереи
 
   const galleryImages = gallery.querySelectorAll('.gallery-image');
