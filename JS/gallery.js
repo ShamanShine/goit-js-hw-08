@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>
         </li>
     `).join(''); // объединяем все элементы в одну строку
-
   gallery.innerHTML = galleryHtml; // устанавливаем HTML-код внутрь контейнера галереи
 
   const galleryImages = gallery.querySelectorAll('.gallery-image');
@@ -88,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // добавляем слушателя события для каждого елемента галереи
     image.addEventListener('click', () => {
       lightboxInstances[index].show();// вызываем модальное окно при событии клик на елемент галереи
-
       // добавляем слушателя события для закрытия модального окна при нажатии еscape
       window.addEventListener('keydown', handleKeyDown);
     });
